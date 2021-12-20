@@ -7,8 +7,8 @@ The footage of _Traffic_ can be found [here](https://drive.google.com/drive/fold
 ## REQUIRED
 **Python**: install [here](https://www.python.org/downloads/)<br/>
 **Numpy**: after installing Python run this in _Command Prompt_ `pip install numpy` makesure you have version 1.21.4 check this in the Python console by typing<br/>
-`import numpy as np`.<br/>
-`print(np.__version__)`.<br/>
+- `import numpy as np`
+- `print(np.__version__)`
 **OpenCV**: similarly `pip install opencv-contrib-python` if this doesn't work just use `pip install opencv-python`<br/>
 If you struggle installing please don't hesitate to email me.
 
