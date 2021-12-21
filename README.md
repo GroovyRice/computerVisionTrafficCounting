@@ -7,6 +7,8 @@ The footage of _Traffic_ can be found [here](https://drive.google.com/drive/fold
 ## REQUIRED
 **Python**: install [here](https://www.python.org/downloads/)
 
+**PyCharm**: this IDE will allow you to easily pull the Git repository, alternatively you can just use it to compile within a separate _Project_. This can be installed from [here](https://www.jetbrains.com/pycharm/)
+
 **Numpy**: after installing Python run this in _Command Prompt_ `pip install numpy` makesure you have version 1.21.4 check this in the Python console by typing
 
 > `import numpy as np`<br/>
