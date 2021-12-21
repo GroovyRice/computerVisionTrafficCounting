@@ -3,7 +3,7 @@ For learning purposes I have structured this document to contain everything I ha
 seen within various files. This will be split into a multitude of different parts quick access to these parts can be
 found here:
 1) [OpenCV](#OpenCV)
-2) [Deep Learning](#Deep Learning)
+2) [Deep Learning](#Deep-Learning)
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
