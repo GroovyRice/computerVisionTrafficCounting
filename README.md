@@ -19,6 +19,6 @@ the arrays can be manipulated using various tools. Additionally, using the `getT
 these operations was recorded and compared to other tools like _NumPy_ to see which process is ultimately faster. The result 
 was that _OpenCV_ is hands down always faster than _NumPy_ so if *required* always use OpenCV for image operations. 
 
-**NOTE**: Two image files, [messi5.jpg](/OpenCV/messi5.jpg) and [opencv_logo.png](/OpenCV/opencv_logo.png) was used within
+**NOTE**: Two image files, [messi5.jpg](/OpenCV/messi5.jpg) and [opencv_logo.png](/OpenCV/opencv_logo.png) were used within
 this program.
 ## Deep Learning
