@@ -4,6 +4,75 @@ seen within various files. This will be split into a multitude of different part
 found here:
 1) [OpenCV](#OpenCV)
 2) [Deep Learning](#Deep Learning)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+blah blah
 ## OpenCV
 
 ## Deep Learning
