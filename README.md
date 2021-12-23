@@ -45,4 +45,3 @@ this program.
 
 
 # Main Files for Traffic Counting
-# Main Files for Traffic Counting
