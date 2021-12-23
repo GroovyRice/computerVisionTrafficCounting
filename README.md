@@ -42,6 +42,26 @@ was that _OpenCV_ is hands down always faster than _NumPy_ so if *required* alwa
 **NOTE**: Two image files, [messi5.jpg](/OpenCV/messi5.jpg) and [opencv_logo.png](/OpenCV/opencv_logo.png) were used within
 this program.
 ## Deep Learning
-
-
+### IMDB Movie Review Classifier
+[**imdb_1.py**](/Deep_Learning/imdb_1.py): This is the initial part of a program that will classify IMDB movie reviews as
+either positive or negative. As this is for learning, KERAS has the datasets of reviews and whether they were positive
+or negative already sorted as two separate lists; the first contains data for the most common words used within each
+review. This means that there is a specific list with what common words were used for each individual review, the second
+contains a list for whether it was positive or negative review (0 or 1). Within this dataset there was 25 thousand
+different reviews and 10 thousand additional test data and labels. _IMDB (1)_ shows how to import this dataset and also
+explains a very useful technique used in **for loops** and **matrices**.<br/>
+[**imdb_2.py**](/Deep_Learning/imdb_2.py): Continuing from _IMDB (1)_ this also teaches a very useful way to use **for loops**
+with an enumerator, much like the likes found in C-programming. It also continues with useful **matrix** manipulation
+followed by the general process of setting up a model, compiling and validating within KERAS. It uses the 
+Matplotlib module to verify how validate the training of the model went. This specific dataset and training ended
+with it _overfitting_ the data.<br/>
+[**imdb_3.py**](/Deep_Learning/imdb_3.py): This wraps up the trilogy of files for the IMDB classification task, using the
+knowledge acquired from _IMDB (2)_ reducing the EPOCHS to 4 to prevent the model from _overfitting_ and then passing
+in new data to predict whether the review was positive or negative. The model is very confident for specific reviews
+which result in a 0.99 or more, or 0.1; however, it is less confident other times (0.6, 0.4).<br/>
+<br/>
+Ultimately, this was a great fundamental lesson into _Deep Learning_ however there were a multitude of
+various hurdles, software and hardware based namely installing CUDA and cudNN integration with NVIDIA GPUs. As it stands
+on the _23/12/21_ this might not be a viable approach for **Traffic Counting** due to the hardware requirements. Further
+research into _Deep Learning_ and its uses in **Cloud Computing** might be the approach.
 # Main Files for Traffic Counting
