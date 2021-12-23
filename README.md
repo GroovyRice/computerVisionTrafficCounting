@@ -1,6 +1,8 @@
+# Main Files for Traffic Counting
+=======
 # Traffic Counting with Computer Vision
 Currently, this repository consists of 2 separated branches
-- [Main_Files](): This section houses all the files that make the program run. Different versions will be categorised into folders.
+- [Main_Files](#Main-Files-for-Traffic-Counting): This section houses all the files that make the program run. Different versions will be categorised into folders.
 - [Learning](#Learning-OpenCV-and-Deep-Learning-with-Python): This section contains various files from exemplar code relating to OpenCV and Deep Learning practise. It allows for easy reflection.
 The footage of _Traffic_ can be found [here](https://drive.google.com/drive/folders/1VTXwcydJPd81ZAMDuM_sng3yKgEDluhB?usp=sharing)
 
@@ -43,3 +45,4 @@ was that _OpenCV_ is hands down always faster than _NumPy_ so if *required* alwa
 this program.
 ## Deep Learning
 
+# Main Files for Traffic Counting
