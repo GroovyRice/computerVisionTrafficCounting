@@ -1,3 +1,23 @@
+# Traffic Counting with Computer Vision
+Currently, this repository consists of 2 separated branches
+- [Main_Files](): This section houses all the files that make the program run. Different versions will be categorised into folders.
+- [Learning](): This section contains various files from exemplar code relating to OpenCV and Deep Learning practise. It allows for easy reflection.
+The footage of _Traffic_ can be found [here](https://drive.google.com/drive/folders/1VTXwcydJPd81ZAMDuM_sng3yKgEDluhB?usp=sharing)
+
+## REQUIRED
+**Python**: install [here](https://www.python.org/downloads/)
+
+**PyCharm**: this IDE will allow you to easily pull the Git repository, alternatively you can just use it to compile within a separate _Project_. This can be installed from [here](https://www.jetbrains.com/pycharm/)
+
+**Numpy**: after installing Python run this in _Command Prompt_ `pip install numpy` makesure you have version 1.21.4 check this in the Python console by typing
+
+> `import numpy as np`<br/>
+> `print(np.__version__)`
+
+**OpenCV**: similarly `pip install opencv-contrib-python` if this doesn't work just use `pip install opencv-python`<br/>
+If you struggle installing please don't hesitate to email me.
+
+
 # Learning OpenCV and Deep Learning with Python
 For learning purposes I have structured this document to contain everything I have learned and where it can be
 seen within various files. This will be split into a multitude of different parts quick access to these parts can be
@@ -22,3 +42,4 @@ was that _OpenCV_ is hands down always faster than _NumPy_ so if *required* alwa
 **NOTE**: Two image files, [messi5.jpg](/OpenCV/messi5.jpg) and [opencv_logo.png](/OpenCV/opencv_logo.png) were used within
 this program.
 ## Deep Learning
+
