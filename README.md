@@ -68,7 +68,7 @@ research into _Deep Learning_ and its uses in **Cloud Computing** might be the a
 [**opencv_camera_link.py**](/Main_Files/opencv_camera_link.py): This is a very simple program using OpenCV to access
 a web-camera and output both the webcams live feed alongside another window with the grayscale image of the webcam.
 It also displays the latency of the process of converting the original feed into grayscale and then updating both of the
-separate windows. Note; flag `cv2.CAP_DSHOW` is used to prevent any errors when porting to the webcam.
+separate windows. Note; flag `cv2.CAP_DSHOW` is used to prevent any errors when porting to the webcam.<br/>
 [**basic_counting.py**](/Main_Files/basic_counting.py): This is the first instance of a program that actively counts the 
 traffic, although its process is very basic and has many flaws. This program requires footage **P1060692.MP4** but can 
 be used on any footage available within the [Google Drive](https://drive.google.com/drive/folders/1VTXwcydJPd81ZAMDuM_sng3yKgEDluhB?usp=sharing).
