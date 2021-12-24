@@ -1,5 +1,5 @@
 # Traffic Counting with Computer Vision
-Currently, this repository consists of 2 separated branches
+Currently, this repository consists of 2 separate folders of programs
 - [Main_Files](#Main-Files-for-Traffic-Counting): This section houses all the files that make the program run. Different versions will be categorised into folders.
 - [Learning](#Learning-OpenCV-and-Deep-Learning-with-Python): This section contains various files from exemplar code relating to OpenCV and Deep Learning practise. It allows for easy reflection.
 The footage of _Traffic_ can be found [here](https://drive.google.com/drive/folders/1VTXwcydJPd81ZAMDuM_sng3yKgEDluhB?usp=sharing)
@@ -65,3 +65,21 @@ various hurdles, software and hardware based namely installing CUDA and cudNN in
 on the _23/12/21_ this might not be a viable approach for **Traffic Counting** due to the hardware requirements. Further
 research into _Deep Learning_ and its uses in **Cloud Computing** might be the approach.
 # Main Files for Traffic Counting
+[**opencv_camera_link.py**](/Main_Files/opencv_camera_link.py): This is a very simple program using OpenCV to access
+a web-camera and output both the webcams live feed alongside another window with the grayscale image of the webcam.
+It also displays the latency of the process of converting the original feed into grayscale and then updating both of the
+separate windows. Note; flag `cv2.CAP_DSHOW` is used to prevent any errors when porting to the webcam.
+[**basic_counting.py**](/Main_Files/basic_counting.py): This is the first instance of a program that actively counts the 
+traffic, although its process is very basic and has many flaws. This program requires footage **P1060692.MP4** but can 
+be used on any footage available within the [Google Drive](https://drive.google.com/drive/folders/1VTXwcydJPd81ZAMDuM_sng3yKgEDluhB?usp=sharing).
+The program operates in the following manner:<br/>
+1) IMPORTS FOOTAGE (_could be replaced by a webcam for real-time processing_)
+2) BACKGROUND SUBTRACTION OF FOOTAGE
+3) SELECTS REGION OF INTEREST (ROI)
+4) THRESHOLDS THE IMAGE TO YIELD BINARY FORM
+5) ERODES AND DILATES BINARY FORM (_occurs twice for better results_)
+6) MEDIAN BLURS IMAGE
+7) FINDS CONTOURS
+8) BOUNDS WITH RECTANGLE AND TRACK WITH CENTROID IF CERTAIN SIZE
+9) COUNTS IF CENTROID CROSSES CERTAIN LINE
+10) PRINTS LIVE FEED WITH BOUNDING RECTANGLE AND CENTROID (separate layer with mask is also shown)
