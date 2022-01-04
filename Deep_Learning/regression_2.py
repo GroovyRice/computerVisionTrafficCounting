@@ -62,3 +62,9 @@ plt.plot(range(1, len(smooth_mae_history)+1), smooth_mae_history)
 plt.xlabel('Epochs')
 plt.ylabel('Validation MAE')
 plt.show()
+
+# NOTE CURRENTLY INCURRING A PROBLEM IN LINE 42:
+# Traceback (most recent call last):
+#   File "/home/rice/PycharmProjects/computerVisionTrafficCounting/Deep_Learning/regression_2.py", line 42, in <module>
+#     mae_history = history.history['val_mean_absolute_error']
+# KeyError: 'val_mean_absolute_error'
