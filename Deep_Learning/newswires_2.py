@@ -42,9 +42,9 @@ partial_y_train = one_hot_train_labels[1000:]
 history = model.fit(partial_x_train, partial_y_train, epochs=9, batch_size=512, validation_data=(x_val, y_val))
 
 # EVALUATE THE MODEL
-results = model.evaluate(x_test, one_hot_test_labels)
+final = model.evaluate(x_test, one_hot_test_labels)
 print("=" * 100)
-print("Test Loss:", results[0], "  |  Test Accuracy:", results[1] * 100, "%")
+print("Test Loss:", final[0], "  |  Test Accuracy:", final[1] * 100, "%")
 print("=" * 100)
 
 # PREDICT THE MODEL
