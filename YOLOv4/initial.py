@@ -82,46 +82,45 @@ def run_inference(image):
 
 # MAIN FUNCTION
 def main():
+    w, h = init_footage(footage_name)
+    cap = cv2.VideoCapture(footage_name)
+    count = 0
     while True:
-        w, h = init_footage(footage_name)
-        cap = cv2.VideoCapture(footage_name)
-        count = 0
-        while True:
-            print("Choose a Frame Rate:")
-            temp = input()
-            if temp.isnumeric():
-                mod = int(temp)
-                break
-            print("Incorrect input {" + temp + "}")
-        while True:
-            print("Would you like to do it in ROI (Y/N):")
-            temp = input()
-            if temp.upper() == 'Y':
-                Rx = np.multiply([0.1, 0.8], w).astype(int)
-                Ry = np.multiply([0.35, 1], h).astype(int)
-                break
-            elif temp.upper() == 'N':
-                Rx = np.multiply([0, 1], w).astype(int)
-                Ry = np.multiply([0, 1], h).astype(int)
-                break
-            print("Incorrect input {" + temp + "}")
-        while cap.isOpened():
-            ret, frame = cap.read()
-            ROI = frame[Ry[0]:Ry[1], Rx[0]:Rx[1]]
-            if ROI is None:
-                break
-            count += 1
-            if count % mod != 0:
-                continue
-            c1 = cv2.getTickCount()
-            run_inference(ROI)
-            c2 = cv2.getTickCount()
-            cv2.imshow("Live Feed", frame)
-            print((cv2.getTickCount() - c1) * 1000 / cv2.getTickFrequency(), "ms")
-            if cv2.waitKey(1) == ord('q'):
-                break
-        cv2.destroyAllWindows()
-        cap.release()
+        print("Choose a Frame Rate:")
+        temp = input()
+        if temp.isnumeric():
+            mod = int(temp)
+            break
+        print("Incorrect input {" + temp + "}")
+    while True:
+        print("Would you like to do it in ROI (Y/N):")
+        temp = input()
+        if temp.upper() == 'Y':
+            Rx = np.multiply([0.1, 0.8], w).astype(int)
+            Ry = np.multiply([0.35, 1], h).astype(int)
+            break
+        elif temp.upper() == 'N':
+            Rx = np.multiply([0, 1], w).astype(int)
+            Ry = np.multiply([0, 1], h).astype(int)
+            break
+        print("Incorrect input {" + temp + "}")
+    while cap.isOpened():
+        ret, frame = cap.read()
+        ROI = frame[Ry[0]:Ry[1], Rx[0]:Rx[1]]
+        if ROI is None:
+            break
+        count += 1
+        if count % mod != 0:
+            continue
+        c1 = cv2.getTickCount()
+        run_inference(ROI)
+        c2 = cv2.getTickCount()
+        cv2.imshow("Live Feed", frame)
+        print((cv2.getTickCount() - c1) * 1000 / cv2.getTickFrequency(), "ms")
+        if cv2.waitKey(1) == ord('q'):
+            break
+    cv2.destroyAllWindows()
+    cap.release()
 
 
 if __name__ == "__main__":
