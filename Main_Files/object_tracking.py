@@ -34,6 +34,7 @@ def index_2d(new_list, v):
 
 
 while cap.isOpened():
+    c1 = cv2.getTickCount()
     ret, frame = cap.read()
     results = model(frame)
     cv2.rectangle(frame, (1700, 900), (500, 500), color=(127, 200, 0), thickness=1)
@@ -68,6 +69,7 @@ while cap.isOpened():
 
     cv2.putText(frame, f"COUNT: {main_count}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, color=(255, 255, 255),
                 thickness=3)
+    print((cv2.getTickCount() - c1) * 1000 / cv2.getTickFrequency(), "ms")
     cv2.imshow("LIVE", frame)
     if cv2.waitKey(1) == ord('q'):
         break
