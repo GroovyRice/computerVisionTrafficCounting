@@ -1,9 +1,13 @@
 import cv2
 import numpy as np
+from pathlib import Path
 
-footage = "footage_1.mp4"
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[1]
+FOOTAGE = str(ROOT) + "/YOLOv4/P1060692.MP4"
+
 print("Optimized:", cv2.useOptimized())
-init_cap = cv2.VideoCapture(footage)
+init_cap = cv2.VideoCapture(FOOTAGE)
 
 width = init_cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 height = init_cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -30,7 +34,7 @@ error = 6
 
 
 def main():
-    cap = cv2.VideoCapture(footage)
+    cap = cv2.VideoCapture(FOOTAGE)
     counter = 0
     validator = 0
     while cap.isOpened():

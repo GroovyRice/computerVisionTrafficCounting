@@ -41,8 +41,8 @@ while cap.isOpened():
     track_bbs_ids = mot_tracker.update(detections)
     centroids = []
     for i, TBI in enumerate(track_bbs_ids.tolist()):
-        ID = TBI[4]
-        label_idx = int(detections[i][5])
+        ID = TBI[8]
+        label_idx = int(TBI[4])
         label = classes[label_idx]
         colour = COLOURS[label_idx]
         x1, y1, x2, y2 = int(TBI[0]), int(TBI[1]), int(TBI[2]), int(TBI[3])
@@ -62,7 +62,7 @@ while cap.isOpened():
                 if counter[idx][1] > 70:
                     main_count += 1
                     counted.append(cent[0])
-                    print(f"Counted ID: {int(cent[0])}")
+                    print(f"[COUNT] {classes[cent[2]]} of ID: {int(cent[0])}")
             else:
                 counter.append([cent[0], 0])
 
