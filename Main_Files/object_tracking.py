@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import torch
 from pathlib import Path
 
@@ -23,8 +22,8 @@ counted = []
 main_count = 0
 
 
-def index_2d(l, v):
-    for j, x in enumerate(l):
+def index_2d(new_list, v):
+    for j, x in enumerate(new_list):
         if v in x:
             if x.index(v) == 0:
                 return j
