@@ -21,6 +21,10 @@ counter = []
 counted = []
 main_count = 0
 
+with open('coco.names', 'r') as file:
+    classes = [cname.strip() for cname in file.readlines()]
+COLOURS = np.random.uniform(0, 255, size=(len(classes), 3))
+
 
 def index_2d(new_list, v):
     for j, x in enumerate(new_list):
@@ -38,14 +42,19 @@ while cap.isOpened():
     centroids = []
     for i, TBI in enumerate(track_bbs_ids.tolist()):
         ID = TBI[4]
+        label_idx = int(detections[i][5])
+        label = classes[label_idx]
+        colour = COLOURS[label_idx]
         x1, y1, x2, y2 = int(TBI[0]), int(TBI[1]), int(TBI[2]), int(TBI[3])
         centre = [int((x1 + x2) / 2), int((y1 + y2) / 2)]
-        centroids.append([ID, centre])
-        cv2.rectangle(frame, (x1, y1), (x2, y2), color=(0, 255, 0), thickness=2)
-        cv2.putText(frame, f"Vehicle: {int(ID)}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color=(0, 255, 0),
+        centroids.append([ID, centre, label_idx])
+        cv2.rectangle(frame, (x1, y1), (x2, y2), colour, thickness=2)
+        cv2.putText(frame, f"{label}: {int(ID)}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, colour,
                     thickness=2)
         cv2.circle(frame, tuple(centre), radius=1, color=(0, 0, 255), thickness=4)
     for i, cent in enumerate(centroids):
+        if int(cent[2]) not in [2, 3, 5, 7]:
+            continue
         if 1700 > cent[1][0] > 500 and 900 > cent[1][1] > 500 and cent[0] not in counted:
             idx = index_2d(counter, cent[0])
             if idx is not None:
@@ -53,7 +62,7 @@ while cap.isOpened():
                 if counter[idx][1] > 70:
                     main_count += 1
                     counted.append(cent[0])
-                    print(f"Counted ID: {cent[0]}")
+                    print(f"Counted ID: {int(cent[0])}")
             else:
                 counter.append([cent[0], 0])
 
