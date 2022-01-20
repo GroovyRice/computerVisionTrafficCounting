@@ -20,7 +20,7 @@ model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 model.eval()
 
 mot_tracker = Sort()
-objects = [0, 2, 3, 5, 7]  # person, car, motorbike, bus and truck
+# objects = [0, 2, 3, 5, 7]  # person, car, motorbike, bus and truck
 # CHECK coco.names to add more objects for detection.
 confidence = 0.6
 counter = []
@@ -54,11 +54,11 @@ while cap.isOpened():
     # cv2.polylines(frame, [LANE_3], True, color=(127, 127, 0), thickness=3)
     vehicles = []
     detections = results.pred[0].cpu().numpy()
-    for i in detections:
-        if i[5] in objects and i[4] > confidence:
-            vehicles.append(i)
-    vehicles = np.array(vehicles)
-    track_bbs_ids = mot_tracker.update(vehicles)
+    # for i in detections:
+    #     if i[5] in objects and i[4] > confidence:
+    #         vehicles.append(i)
+    # vehicles = np.array(vehicles)
+    track_bbs_ids = mot_tracker.update(detections)
     centroids = []
     for i, TBI in enumerate(track_bbs_ids.tolist()):
         ID = TBI[8]

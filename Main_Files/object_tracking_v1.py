@@ -23,7 +23,7 @@ model.eval()
 mot_tracker = Sort()
 objects = [0, 2, 3, 5, 7]  # person, car, motorbike, bus and truck
 # CHECK coco.names to add more objects for detection.
-confidence = 0.6
+confidence = 0.9
 counter = []
 counted = []
 time = []
