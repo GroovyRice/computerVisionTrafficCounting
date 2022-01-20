@@ -4,8 +4,9 @@ import torch
 from pathlib import Path
 from polygon import *
 import statistics
-
+import math
 from Main_Files.sort.sort import *
+
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[1]
@@ -20,6 +21,9 @@ model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 model.eval()
 
 mot_tracker = Sort()
+objects = [0, 2, 3, 5, 7]  # person, car, motorbike, bus and truck
+# CHECK coco.names to add more objects for detection.
+confidence = 0.6
 counter = []
 counted = []
 time = []
@@ -45,11 +49,16 @@ def index_2d(new_list, v):
 while cap.isOpened():
     c1 = cv2.getTickCount()
     ret, frame = cap.read()
-    results = model(frame)
+    results = model(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
     cv2.polylines(frame, [LANE_1], True, color=(127, 127, 0), thickness=3)
     cv2.polylines(frame, [LANE_2], True, color=(127, 127, 0), thickness=3)
     cv2.polylines(frame, [LANE_3], True, color=(127, 127, 0), thickness=3)
     detections = results.pred[0].cpu().numpy()
+    vehicles = []
+    for i in detections:
+        if i[5] in objects and i[4] > confidence:
+            vehicles.append(i)
+    vehicles = np.array(vehicles)
     track_bbs_ids = mot_tracker.update(detections)
     centroids = []
     for i, TBI in enumerate(track_bbs_ids.tolist()):
@@ -98,7 +107,7 @@ while cap.isOpened():
                 thickness=3)
 
     time.append((cv2.getTickCount() - c1) * 1000 / cv2.getTickFrequency())
-    if timer > 600:
+    if timer > 1000:
         timer = 0
         av = statistics.mean(time)
         realtime = av*60
@@ -114,3 +123,4 @@ while cap.isOpened():
         break
 cv2.destroyAllWindows()
 cap.release()
+print(main_count)
