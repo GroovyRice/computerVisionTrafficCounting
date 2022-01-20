@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Main_Files/sort" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Main_Files/yolov5" vcs="Git" />
   </component>
 </project>
