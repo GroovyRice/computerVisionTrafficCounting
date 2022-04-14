@@ -18,6 +18,7 @@ cv2.imshow('', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+
 # Black is 0 in grayscale and White is 255
 # cv2.threshold(IMAGE,MinValue,MaxValue,cv2.THRESH_BINARY)
 #   When the grayscale is within the bounds of [MinValue,MaxValue]
