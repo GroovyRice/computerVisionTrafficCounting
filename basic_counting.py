@@ -20,6 +20,9 @@ backSub = cv2.createBackgroundSubtractorMOG2(detectShadows=True)
 kernelOpen = np.ones((3, 3), np.uint8)
 kernelClose = np.ones((8, 8), np.uint8)
 
+#BIG DICK
+
+
 # Region of Interest
 Rx = np.multiply([0.1, 0.8], width).astype(int)
 Ry = np.multiply([0.35, 1], height).astype(int)
